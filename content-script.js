@@ -25,6 +25,25 @@ const preEls = document.querySelectorAll("pre");
     });
 });
 
+chrome.runtime.onMessage.addListener((req, info, cb) => {
+    if(req.action === "copy-all"){
+        const allCode = getAllCode();
+
+        navigator.clipboard.writeText(allCode).then(() => {
+            notify();
+            cb(allCode);
+        });
+        return true;
+    }
+});
+
+function getAllCode(){
+    return [...preEls].map((preEl) => {
+        return preEl.querySelector('code').innerText;
+    })
+    .join("");
+}
+
 function notify() {
     const scriptEl = document.createElement("script");
     scriptEl.src = chrome.runtime.getURL("execute.js");
