@@ -1,9 +1,9 @@
 button{
     position: absolute;
-    right: 12px;
-    top: 6px;
-    padding: 0.5em;
-    background: #ffcc00;
+    right: 0;
+    top: 0;
+    padding: 0.4em;
+    background: #ffcc003c;
     color: #000;
     border: none;
     border-radius: 3px;
@@ -13,4 +13,23 @@ button{
 
 button:hover {
     background: #e6b800;
+}
+
+button::after{
+    content: "Copy";
+    position: absolute;
+    top: 15px;
+    right: 0;
+    background-color: #3333335e;
+    color: #fff;
+    padding: 2px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+button:hover::after{
+    opacity: 1;
+    visibility: visible;
 }

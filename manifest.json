@@ -20,7 +20,7 @@
     "host_permissions": ["https://stackoverflow.com/*"],
     "web_accessible_resources": [
         {
-            "resources": ["content-script.css", "execute.js"],
+            "resources": ["content-script.css", "execute.js", "icons/copy.png"],
             "matches": ["https://stackoverflow.com/*"]
         }
     ],

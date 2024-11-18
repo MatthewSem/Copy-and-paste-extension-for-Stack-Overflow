@@ -10,11 +10,16 @@ const preEls = document.querySelectorAll("pre");
     shadowRoot.innerHTML = `<link rel = "stylesheet" href="${cssUrl}"></link>`
 
     const button = document.createElement("button");
-    button.innerText = "Copy";
-    button.type = "button";
+    const img = document.createElement("img");
+    img.src = chrome.runtime.getURL("icons/copy.png")
+    img.alt = "Copy";
+    img.style.width = "20px";
+    img.style.height = "20px";
 
+    button.appendChild(img);
     shadowRoot.prepend(button);
     preEl.prepend(root);
+
 
     const codeEl = preEl.querySelector("code");
 
